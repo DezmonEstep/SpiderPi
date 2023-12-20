@@ -88,7 +88,7 @@ def serial_servo_write_cmd(pi, id, w_cmd, dat1=None, dat2=None):
     if dat2 is not None: # If there are 2 parameters
         # Append the least significant & next least significant 8 bits of the 1st parameter
         buf.extend([(0xff & dat1), (0xff & (dat1 >> 8))])  # 分低8位 高8位 放入缓存
-        decimal_places = 2 # or whatever number of decimal places you want to keep
+        decimal_places = 10 # or whatever number of decimal places you want to keep
         multiplier = 10 ** decimal_places
 
         # Multiply dat2 by the multiplier
