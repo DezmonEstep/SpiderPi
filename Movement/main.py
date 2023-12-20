@@ -1,15 +1,23 @@
-from Movement.Hexapod import Hexapod
+import Hexapod
 import time
 
-# Create a new Hexapod object
-hexapod = Hexapod()
+def main():
+   # Initialize the hexapod
+   Hexapod.load()
 
-# Move the hexapod forward
-hexapod.walk('forward')
+   # Move each leg forward
+   for leg in range(6):
+       Hexapod.forward_step(leg)
 
-# Wait for a while
-time.sleep(5)
+   # Wait for a while
+   time.sleep(2)
 
-# Move the hexapod backward
-hexapod.walk('backward')
+   # Move each leg backward
+   for leg in range(6):
+       Hexapod.backward_step(leg)
 
+   # Unload the hexapod
+   Hexapod.unload()
+
+if __name__ == "__main__":
+   main()
