@@ -19,7 +19,7 @@
 # X axis is front to back
 # Y axis is side to side
 # Z axis is vertical
-import 2DIK as IK # Inverse Kinematics Libray
+import IK as iks # Inverse Kinematics Libray
 import math # Standard library of mathematical functions
 import time # Standard library of time & date functions
 import pigpio # Standard Raspberry Pi GPIO library
@@ -69,15 +69,15 @@ def forward_step(leg, factor=1, tim=2000):
     phase = leg % 2 # Even legs move forward, odd legs move back
 
     if phase == 0:
-        SpiderPi[leg].pos = (IK.inverse_kin(leg, PEP), tim * 0.601)
-        SpiderPi[leg].pos = (IK.inverse_kin(leg, PSP), tim * 0.133)
-        SpiderPi[leg].pos = (IK.inverse_kin(leg, ASP), tim * 0.133)
-        SpiderPi[leg].pos = (IK.inverse_kin(leg, AEP), tim * 0.133)
+        SpiderPi[leg].pos = (iks.inverse_kin(leg, PEP), tim * 0.601)
+        SpiderPi[leg].pos = (iks.inverse_kin(leg, PSP), tim * 0.133)
+        SpiderPi[leg].pos = (iks.inverse_kin(leg, ASP), tim * 0.133)
+        SpiderPi[leg].pos = (iks.inverse_kin(leg, AEP), tim * 0.133)
     else:
-        SpiderPi[leg].pos = (IK.inverse_kin(leg, ASP), tim * 0.133)
-        SpiderPi[leg].pos = (IK.inverse_kin(leg, AEP), tim * 0.133)
-        SpiderPi[leg].pos = (IK.inverse_kin(leg, PEP), tim * 0.601)
-        SpiderPi[leg].pos = (IK.inverse_kin(leg, PSP), tim * 0.133)
+        SpiderPi[leg].pos = (iks.inverse_kin(leg, ASP), tim * 0.133)
+        SpiderPi[leg].pos = (iks.inverse_kin(leg, AEP), tim * 0.133)
+        SpiderPi[leg].pos = (iks.inverse_kin(leg, PEP), tim * 0.601)
+        SpiderPi[leg].pos = (iks.inverse_kin(leg, PSP), tim * 0.133)
 
 def backward_step(leg, factor=1, tim=2000):
     '''
@@ -96,15 +96,15 @@ def backward_step(leg, factor=1, tim=2000):
     phase = leg % 2 # Even legs move forward, odd legs move back
 
     if phase == 0:
-        SpiderPi[leg].pos = (IK.inverse_kin(leg, AEP), tim * 0.601)
-        SpiderPi[leg].pos = (IK.inverse_kin(leg, ASP), tim * 0.133)
-        SpiderPi[leg].pos = (IK.inverse_kin(leg, PSP), tim * 0.133)
-        SpiderPi[leg].pos = (IK.inverse_kin(leg, PEP), tim * 0.133)
+        SpiderPi[leg].pos = (iks.inverse_kin(leg, AEP), tim * 0.601)
+        SpiderPi[leg].pos = (iks.inverse_kin(leg, ASP), tim * 0.133)
+        SpiderPi[leg].pos = (iks.inverse_kin(leg, PSP), tim * 0.133)
+        SpiderPi[leg].pos = (iks.inverse_kin(leg, PEP), tim * 0.133)
     else:
-        SpiderPi[leg].pos = (IK.inverse_kin(leg, PSP), tim * 0.133)
-        SpiderPi[leg].pos = (IK.inverse_kin(leg, PEP), tim * 0.133)
-        SpiderPi[leg].pos = (IK.inverse_kin(leg, AEP), tim * 0.601)
-        SpiderPi[leg].pos = (IK.inverse_kin(leg, ASP), tim * 0.133)
+        SpiderPi[leg].pos = (iks.inverse_kin(leg, PSP), tim * 0.133)
+        SpiderPi[leg].pos = (iks.inverse_kin(leg, PEP), tim * 0.133)
+        SpiderPi[leg].pos = (iks.inverse_kin(leg, AEP), tim * 0.601)
+        SpiderPi[leg].pos = (iks.inverse_kin(leg, ASP), tim * 0.133)
 
 def load():
     '''
