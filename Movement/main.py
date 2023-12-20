@@ -1,4 +1,5 @@
 from Movement.Hexapod import Hexapod
+import time
 
 # Create a new Hexapod object
 hexapod = Hexapod()
