@@ -88,18 +88,17 @@ def serial_servo_write_cmd(pi, id, w_cmd, dat1=None, dat2=None):
     if dat2 is not None: # If there are 2 parameters
         # Append the least significant & next least significant 8 bits of the 1st parameter
         buf.extend([(0xff & dat1), (0xff & (dat1 >> 8))])  # 分低8位 高8位 放入缓存
-        # Append the least significant & next least significant 8 bits of the 2nd parameter
-	decimal_places = 2 # or whatever number of decimal places you want to keep
-	multiplier = 10 ** decimal_places
+        decimal_places = 2 # or whatever number of decimal places you want to keep
+        multiplier = 10 ** decimal_places
 
-	# Multiply dat2 by the multiplier
-	dat2_multiplied = dat2 * multiplier
+        # Multiply dat2 by the multiplier
+        dat2_multiplied = dat2 * multiplier
 
-	# Perform the bitwise operations
-	buf.extend([(0xff & int(dat2_multiplied)), (0xff & (int(dat2_multiplied) >> 8))])
+        # Perform the bitwise operations
+        buf.extend([(0xff & int(dat2_multiplied)), (0xff & (int(dat2_multiplied) >> 8))])
 
-# Divide by the multiplier to get the original float value with the same number of decimal places
-dat2_original = dat2_multiplied / multiplier8位 高8位 放入缓存
+        # Divide by the multiplier to get the original float value with the same number of decimal places
+        dat2_original = dat2_multiplied / multiplier
     elif dat1 is not None: # If there is 1 parameter
         buf.append(dat1 & 0xff) # Append the least significant 8 bits of the parameter
 
