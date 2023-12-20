@@ -12,11 +12,11 @@ for leg in range(6):
 # Wait for a while
 time.sleep(2)
 
-   # Move each leg backward
+# Move each leg backward
 for leg in range(6):
     Hexapod.backward_step(leg)
 
 # Unload the hexapod
-Hexapod.unload()
+# Hexapod.unload()
 
 
